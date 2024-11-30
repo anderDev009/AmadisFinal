@@ -7,7 +7,7 @@ const Login = () => {
             {/* Logo */}
             <Image
                 source={{ uri: 'https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiPuRdd7_cBxOZk62HoCa226D3d3thkHwBv1pRV1dKRYsY6WUxZhaaROL9kvVJxX--9MtplcLh7WoP5UjE8-PimBAyAfCV_TGTThjWwpkWupOqVMg72Hs6PPsBgkyQhHv6r5HfriD4E2FmntYH345hYXCKtb4RDP-FT7Vim4itCRuWUsZ5o_X0Nsctx/s3380/FullLogoUASD.png' }}
-                className="w-[24rem] h-32 mb-6"
+                className="w-[27rem] h-32 mb-6"
             />
 
             {/* Título */}
