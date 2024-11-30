@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { Image, Text, TextInput, TouchableOpacity, View, Linking, Alert } from 'react-native';
 import api from '../Actions/Api/ApiAmadis'; // Adjust the import path as needed
 
-const Login = () => {
+const Login = ({ navigation }) => {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
 
@@ -85,8 +85,10 @@ const Login = () => {
             </TouchableOpacity>
 
             {/* Enlace para recuperar la contraseña */}
-            <TouchableOpacity className="mb-6">
+            <TouchableOpacity className="mb-6"
+                onPress={() => navigation.navigate('ResetPassword')}>
                 <Text className="text-gray-800 text-sm underline">¿Olvidaste tu contraseña?</Text>
+
             </TouchableOpacity>
 
             {/* Registro */}
