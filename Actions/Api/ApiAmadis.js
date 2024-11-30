@@ -36,6 +36,6 @@ const createAxiosInstance = (baseURL) => {
 };
 
 
-const api = createAxiosInstance('https://uasdapi.ia3x.com/');
+const api = createAxiosInstance('https://uasdapi.ia3x.com');
 export default api;
 
