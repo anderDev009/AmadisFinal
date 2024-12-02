@@ -7,6 +7,8 @@ import HomeMenu from "./screens/HomeMenu";
 import ResetPassword from "./screens/ResetPassword";
 import Eventos from "./screens/Events"; // Add this import
 import "./global.css";
+import NewsScreen from "./screens/NewsScreen";
+import PreseleccionScreen from "./screens/InscripcionScreen";
 
 const Stack = createStackNavigator();
 
@@ -25,6 +27,16 @@ export default function App() {
                     name="Login"
                     component={Login}
                     options={{ title: 'Iniciar Sesión' }} // Título en la pantalla de Login
+                />
+                <Stack.Screen
+                    name="Noticias"
+                    component={NewsScreen}
+                    options={{ title: 'Noticias' }} // Título en la pantalla de Login
+                />
+                <Stack.Screen
+                    name="Preseleccion"
+                    component={PreseleccionScreen}
+                    options={{ title: 'Preseleccion' }} // Título en la pantalla de Login
                 />
                 <Stack.Screen
                     name="ResetPassword"
