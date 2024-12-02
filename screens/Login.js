@@ -20,20 +20,15 @@ const Login = ({ navigation }) => {
                 password
             });
 
-            // If login is successful, you might want to navigate to another screen
-            // For example: navigation.navigate('Home');
-            Alert.alert('Éxito', 'Inicio de sesión exitoso');
+            // Redirigir a la pantalla de Inicio después de un login exitoso
+            navigation.navigate('Home');  // Asegúrate de que 'Home' coincida con el nombre de la pantalla en tu navegación
         } catch (error) {
-            // Handle login errors
+            // Manejo de errores como estaba antes
             if (error.response) {
-                // The request was made and the server responded with a status code
-                // that falls out of the range of 2xx
                 Alert.alert('Error', error.response.data.message || 'Error al iniciar sesión');
             } else if (error.request) {
-                // The request was made but no response was received
                 Alert.alert('Error', 'No se pudo conectar con el servidor');
             } else {
-                // Something happened in setting up the request that triggered an Error
                 Alert.alert('Error', 'Ocurrió un error inesperado');
             }
         }
@@ -57,7 +52,7 @@ const Login = ({ navigation }) => {
 
             {/* Campo de correo */}
             <TextInput
-                placeholder="Correo electrónico"
+                placeholder="Matricula"
                 placeholderTextColor="#333"
                 value={email}
                 onChangeText={setEmail}
