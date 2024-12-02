@@ -14,7 +14,7 @@ const createAxiosInstance = (baseURL) => {
     instance.interceptors.request.use(
         (config) => {
             if (token) {
-                config.headers.Authorization = `Bearer ${token}`;
+                config.headers.Authorization = `${token}`;
             }
             return config;
         },
@@ -24,7 +24,7 @@ const createAxiosInstance = (baseURL) => {
     instance.login = async (credentials) => {
         try {
             const response = await instance.post('/login', credentials);
-            token = response.data.token; // Ajusta según cómo venga tu JWT en la respuesta
+            token = response.data.data.authToken;
             console.log('Token obtenido:', token);
         } catch (error) {
             console.error('Error al loguearse:', error);

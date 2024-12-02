@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { Image, Text, TextInput, TouchableOpacity, View, Linking, Alert } from 'react-native';
 import api from '../Actions/Api/ApiAmadis'; // Adjust the import path as needed
 
-const Login = () => {
+const Login = ({ navigation }) => {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
 
@@ -16,24 +16,19 @@ const Login = () => {
         try {
             // Attempt to log in using the api instance
             await api.login({
-                email,
+                username: email,
                 password
             });
 
-            // If login is successful, you might want to navigate to another screen
-            // For example: navigation.navigate('Home');
-            Alert.alert('Éxito', 'Inicio de sesión exitoso');
+            // Redirigir a la pantalla de Inicio después de un login exitoso
+            navigation.navigate('HomeMenu');  // Asegúrate de que 'Home' coincida con el nombre de la pantalla en tu navegación
         } catch (error) {
-            // Handle login errors
+            // Manejo de errores como estaba antes
             if (error.response) {
-                // The request was made and the server responded with a status code
-                // that falls out of the range of 2xx
                 Alert.alert('Error', error.response.data.message || 'Error al iniciar sesión');
             } else if (error.request) {
-                // The request was made but no response was received
                 Alert.alert('Error', 'No se pudo conectar con el servidor');
             } else {
-                // Something happened in setting up the request that triggered an Error
                 Alert.alert('Error', 'Ocurrió un error inesperado');
             }
         }
@@ -57,7 +52,7 @@ const Login = () => {
 
             {/* Campo de correo */}
             <TextInput
-                placeholder="Correo electrónico"
+                placeholder="Matricula"
                 placeholderTextColor="#333"
                 value={email}
                 onChangeText={setEmail}
@@ -85,17 +80,11 @@ const Login = () => {
             </TouchableOpacity>
 
             {/* Enlace para recuperar la contraseña */}
-            <TouchableOpacity className="mb-6">
+            <TouchableOpacity className="mb-6"
+                onPress={() => navigation.navigate('ResetPassword')}>
                 <Text className="text-gray-800 text-sm underline">¿Olvidaste tu contraseña?</Text>
-            </TouchableOpacity>
 
-            {/* Registro */}
-            <View className="flex-row items-center mb-4">
-                <Text className="text-gray-800 text-sm">¿No tienes cuenta? </Text>
-                <TouchableOpacity>
-                    <Text className="text-gray-800 text-sm font-semibold underline">Regístrate</Text>
-                </TouchableOpacity>
-            </View>
+            </TouchableOpacity>
 
             {/* Enlace para inscripción */}
             <TouchableOpacity
