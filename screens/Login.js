@@ -21,7 +21,7 @@ const Login = ({ navigation }) => {
             });
 
             // Redirigir a la pantalla de Inicio después de un login exitoso
-            navigation.navigate('Home');  // Asegúrate de que 'Home' coincida con el nombre de la pantalla en tu navegación
+            navigation.navigate('HomeMenu');  // Asegúrate de que 'Home' coincida con el nombre de la pantalla en tu navegación
         } catch (error) {
             // Manejo de errores como estaba antes
             if (error.response) {
