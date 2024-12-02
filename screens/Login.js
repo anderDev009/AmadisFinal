@@ -91,14 +91,6 @@ const Login = ({ navigation }) => {
 
             </TouchableOpacity>
 
-            {/* Registro */}
-            <View className="flex-row items-center mb-4">
-                <Text className="text-gray-800 text-sm">¿No tienes cuenta? </Text>
-                <TouchableOpacity>
-                    <Text className="text-gray-800 text-sm font-semibold underline">Regístrate</Text>
-                </TouchableOpacity>
-            </View>
-
             {/* Enlace para inscripción */}
             <TouchableOpacity
                 onPress={() => Linking.openURL('https://uasd.edu.do/admisiones/')}
