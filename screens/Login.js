@@ -16,7 +16,7 @@ const Login = ({ navigation }) => {
         try {
             // Attempt to log in using the api instance
             await api.login({
-                email,
+                username: email,
                 password
             });
 
