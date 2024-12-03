@@ -10,6 +10,7 @@ import "./global.css";
 import NewsScreen from "./screens/NewsScreen";
 import PreseleccionScreen from "./screens/InscripcionScreen";
 import Solicitudes from "./screens/Solicitudes";
+import Deudas from "./screens/Deudas";
 
 const Stack = createStackNavigator();
 
@@ -58,6 +59,11 @@ export default function App() {
                     name="Solicitudes"
                     component={Solicitudes}
                     options={{ title: 'Solicitudes' }}
+                />
+                <Stack.Screen
+                    name="Deuda"
+                    component={Deudas}
+                    options={{ title: 'Deudas' }}
                 />
             </Stack.Navigator>
         </NavigationContainer>

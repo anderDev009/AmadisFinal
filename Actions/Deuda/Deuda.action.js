@@ -1,6 +1,6 @@
 import api from '../Api/ApiAmadis';
 
-export const DebtAction = async () => {
+export const DeudaAction = async () => {
     try {
         const response = await api.get('/deudas');
 
