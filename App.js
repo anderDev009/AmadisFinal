@@ -9,6 +9,9 @@ import Eventos from "./screens/Events"; // Add this import
 import "./global.css";
 import NewsScreen from "./screens/NewsScreen";
 import PreseleccionScreen from "./screens/InscripcionScreen";
+import Solicitudes from "./screens/Solicitudes";
+import Deudas from "./screens/Deudas";
+import Tareas from "./screens/Tareas";
 
 const Stack = createStackNavigator();
 
@@ -52,6 +55,21 @@ export default function App() {
                     name="Eventos"
                     component={Eventos}
                     options={{ title: 'Eventos' }}
+                />
+                <Stack.Screen
+                    name="Solicitudes"
+                    component={Solicitudes}
+                    options={{ title: 'Solicitudes' }}
+                />
+                <Stack.Screen
+                    name="Deuda"
+                    component={Deudas}
+                    options={{ title: 'Deudas' }}
+                />
+                <Stack.Screen
+                    name="Tareas"
+                    component={Tareas}
+                    options={{ title: 'Mis Tareas' }}
                 />
             </Stack.Navigator>
         </NavigationContainer>
