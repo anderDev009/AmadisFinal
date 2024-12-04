@@ -3,7 +3,8 @@ import apiAmadis from "../Api/ApiAmadis";
 
 export const GetMaterias = async ()=>{
     const response = await apiAmadis.get("/materias_disponibles");
-    return response.data.data;
+    console.log(response.data);
+    return response.data;
 }
 
 export const AddrMateriaPreseleccion = async (codigo)=>{
@@ -12,8 +13,14 @@ export const AddrMateriaPreseleccion = async (codigo)=>{
 }
 
 export const CancelMateria = async (codigo)=>{
-    const response = await apiAmadis.post("/cancelar_materia",codigo)
-    return response.data.success === true;
+    try{
+        const response = await apiAmadis.post("/cancelar_preseleccion_materia",codigo)
+        return response.data.success === true;
+    }catch(error) {
+        console.log(error);
+        return false;
+    }
+
 }
 
 export const GetPreseleccion = async ()=>{

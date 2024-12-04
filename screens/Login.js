@@ -1,7 +1,39 @@
-import React from 'react';
-import { Image, Text, TextInput, TouchableOpacity, View, Linking } from 'react-native';
+import React, { useState } from 'react';
+import { Image, Text, TextInput, TouchableOpacity, View, Linking, Alert } from 'react-native';
+import api from '../Actions/Api/ApiAmadis'; // Adjust the import path as needed
 
-const Login = () => {
+const Login = ({ navigation }) => {
+    const [email, setEmail] = useState('');
+    const [password, setPassword] = useState('');
+
+    const handleLogin = async () => {
+        // Validate input
+        if (!email || !password) {
+            Alert.alert('Error', 'Por favor, ingresa tu correo y contraseña');
+            return;
+        }
+
+        try {
+            // Attempt to log in using the api instance
+            await api.login({
+                username: email,
+                password
+            });
+
+            // Redirigir a la pantalla de Inicio después de un login exitoso
+            navigation.navigate('HomeMenu');  // Asegúrate de que 'Home' coincida con el nombre de la pantalla en tu navegación
+        } catch (error) {
+            // Manejo de errores como estaba antes
+            if (error.response) {
+                Alert.alert('Error', error.response.data.message || 'Error al iniciar sesión');
+            } else if (error.request) {
+                Alert.alert('Error', 'No se pudo conectar con el servidor');
+            } else {
+                Alert.alert('Error', 'Ocurrió un error inesperado');
+            }
+        }
+    };
+
     return (
         <View className="flex-1 bg-gradient-to-b from-blue-400 to-purple-700 justify-center items-center p-6">
             {/* Logo */}
@@ -20,8 +52,12 @@ const Login = () => {
 
             {/* Campo de correo */}
             <TextInput
-                placeholder="Correo electrónico"
+                placeholder="Matricula"
                 placeholderTextColor="#333"
+                value={email}
+                onChangeText={setEmail}
+                keyboardType="email-address"
+                autoCapitalize="none"
                 className="bg-white p-4 rounded-lg text-base text-gray-900 mb-4 shadow-sm w-full max-w-md"
             />
 
@@ -29,27 +65,26 @@ const Login = () => {
             <TextInput
                 placeholder="Contraseña"
                 placeholderTextColor="#333"
+                value={password}
+                onChangeText={setPassword}
                 secureTextEntry
                 className="bg-white p-4 rounded-lg text-base text-gray-900 mb-6 shadow-sm w-full max-w-md"
             />
 
             {/* Botón de inicio de sesión */}
-            <TouchableOpacity className="w-full max-w-md bg-purple-800 py-4 rounded-lg shadow-md mb-4">
+            <TouchableOpacity
+                onPress={handleLogin}
+                className="w-full max-w-md bg-purple-800 py-4 rounded-lg shadow-md mb-4"
+            >
                 <Text className="text-white text-lg font-semibold text-center">Iniciar sesión</Text>
             </TouchableOpacity>
 
             {/* Enlace para recuperar la contraseña */}
-            <TouchableOpacity className="mb-6">
+            <TouchableOpacity className="mb-6"
+                onPress={() => navigation.navigate('ResetPassword')}>
                 <Text className="text-gray-800 text-sm underline">¿Olvidaste tu contraseña?</Text>
-            </TouchableOpacity>
 
-            {/* Registro */}
-            <View className="flex-row items-center mb-4">
-                <Text className="text-gray-800 text-sm">¿No tienes cuenta? </Text>
-                <TouchableOpacity>
-                    <Text className="text-gray-800 text-sm font-semibold underline">Regístrate</Text>
-                </TouchableOpacity>
-            </View>
+            </TouchableOpacity>
 
             {/* Enlace para inscripción */}
             <TouchableOpacity
