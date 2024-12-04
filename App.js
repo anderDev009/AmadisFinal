@@ -1,11 +1,11 @@
-import { StatusBar } from 'expo-status-bar';
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 import Login from "./screens/Login";
 import Home from "./screens/Home";
 import HomeMenu from "./screens/HomeMenu";
 import ResetPassword from "./screens/ResetPassword";
-import Eventos from "./screens/Events"; // Add this import
+import Eventos from "./screens/Events";
+import About from "./screens/About";
 import "./global.css";
 import NewsScreen from "./screens/NewsScreen";
 import PreseleccionScreen from "./screens/InscripcionScreen";
@@ -70,6 +70,11 @@ export default function App() {
                     name="Tareas"
                     component={Tareas}
                     options={{ title: 'Mis Tareas' }}
+                />
+                <Stack.Screen
+                    name="About"
+                    component={About}
+                    options={{ title: 'Sobre nosotros' }}
                 />
             </Stack.Navigator>
         </NavigationContainer>

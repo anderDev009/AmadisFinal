@@ -7,25 +7,25 @@ const About = () => {
             name: 'Richard Ortiz',
             matricula: '2022-1915',
             bio: 'Richard es un desarrollador con un enfoque en soluciones innovadoras. Apasionado por el desarrollo de software y siempre en busca de nuevas tecnologías que transformen la experiencia del usuario.',
-            photo: require('../assets/Richard.png'), // Foto local
+            photo: require('../assets/Richard.jpg'), // Foto local
         },
         {
             name: 'Hansel Rodriguez',
             matricula: '2022-0897',
             bio: 'Hansel es un experto en diseño de interfaces móviles. Le apasiona crear aplicaciones intuitivas que ofrezcan una experiencia fluida y agradable para los usuarios, utilizando los principios de diseño centrado en el usuario.',
-            ///  photo: require('../assets/Hansel.png'), // Foto local
+            photo: require('../assets/Hansel.jpg'), // Foto local
         },
         {
             name: 'Anthony Espinal',
             matricula: '2022-1960',
             bio: 'Anthony se especializa en el desarrollo de aplicaciones móviles y soluciones frontend. Con un enfoque práctico y orientado a resultados, siempre está dispuesto a aprender nuevas herramientas que mejoren la eficiencia del desarrollo.',
-            photo: require('../assets/Anthony.png'), // Foto local
+            photo: require('../assets/Anthony.jpg'), // Foto local
         },
         {
             name: 'Ricelys Marte',
             matricula: '2022-1943',
             bio: 'Ricelys tiene una gran pasión por las tecnologías emergentes y el desarrollo de software. Se enfoca en mejorar la experiencia de usuario mediante interfaces limpias y fáciles de usar, siempre buscando cómo hacer que las aplicaciones sean más accesibles.',
-            photo: require('../assets/ris.png'),  // Foto local
+            photo: require('../assets/ris.jpg'),  // Foto local
         },
     ];
 

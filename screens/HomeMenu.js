@@ -64,7 +64,7 @@ const HomeScreen = ({ navigation }) => {
         {
             name: 'Acerca de',
             icon: <Ionicons name="information-circle-outline" color="#34495E" size={30} />,
-            onPress: () => navigation.navigate('AcercaDe')
+            onPress: () => navigation.navigate('About')
         },
         {
             name: 'Salir',
