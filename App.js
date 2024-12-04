@@ -12,13 +12,13 @@ import PreseleccionScreen from "./screens/InscripcionScreen";
 import Solicitudes from "./screens/Solicitudes";
 import Deudas from "./screens/Deudas";
 import Tareas from "./screens/Tareas";
-
+import Horario from "./screens/Horario";
+import Video from "./screens/Video"
 const Stack = createStackNavigator();
 
 export default function App() {
     return (
         // NavigationContainer es el componente principal que envuelve toda la navegación
-        //agreguen sus pantallas para poder usar la navegacion
         <NavigationContainer>
             <Stack.Navigator initialRouteName="Home">
                 <Stack.Screen
@@ -34,22 +34,27 @@ export default function App() {
                 <Stack.Screen
                     name="Noticias"
                     component={NewsScreen}
-                    options={{ title: 'Noticias' }} // Título en la pantalla de Login
+                    options={{ title: 'Noticias' }}
                 />
                 <Stack.Screen
                     name="Preseleccion"
                     component={PreseleccionScreen}
-                    options={{ title: 'Preseleccion' }} // Título en la pantalla de Login
+                    options={{ title: 'Preseleccion' }}
+                />
+                <Stack.Screen
+                    name="Horarios"
+                    component={Horario}
+                    options={{ title: 'Horario' }}
                 />
                 <Stack.Screen
                     name="ResetPassword"
                     component={ResetPassword}
-                    options={{ title: 'Restablecer Contraseña' }} // Título para la pantalla de ResetPassword
+                    options={{ title: 'Restablecer Contraseña' }}
                 />
                 <Stack.Screen
                     name="HomeMenu"
                     component={HomeMenu}
-                    options={{ title: 'Menu principal' }} // Título para la pantalla de ResetPassword
+                    options={{ title: 'Menu principal' }}
                 />
                 <Stack.Screen
                     name="Eventos"
@@ -64,6 +69,11 @@ export default function App() {
                 <Stack.Screen
                     name="Deuda"
                     component={Deudas}
+                    options={{ title: 'Deudas' }}
+                />
+                <Stack.Screen
+                    name="Videos"
+                    component={Video}
                     options={{ title: 'Deudas' }}
                 />
                 <Stack.Screen
